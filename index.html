@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Data Processing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="infoBox" class="info-box hidden">
+        <button id="closeInfoBox" class="close-button">Kapat</button>
+        <p>-İlk olarak veri uzunluğunu girin ve submitleyin.<br>-Veriyi girerken başta ve sonda boşluk bırakmayın.<br>-Process Data'ya 1 kez bastığınızda veriyi ve bu veriye bağlı olarak check bitlerini gösterir.
+        <br>-2. kez bastığınızda check bitlerini veriye işler.<br>-Ardından aşağıdaki alana değiştirmek istediniğiz bit konumunu giriniz.<br>-Aynı veri üzerinde farklı değişiklikler yapabilirsiniz.
+        <br>-Aynı anda sadece 1 değişiklik işlenebilir.<br>-Yeni veri girmek istiyorsanız yukarıdaki reset tuşuna basınız.</p>
+    </div>
+    <div id="infoIcon" class="info-icon">i</div>
+    <div class="container">
+        <h1>Hamming Error-Correcting Code Simülatörü</h1>
+        <button class="reset-btn" onclick="resetPage()">Reset</button>
+        <div class="input-section">
+            <label for="dataLength">Verinin uzunluğunu girin:</label>
+            <input type="number" id="dataLength" min="1">
+            <button onclick="getDataLength()">Submit</button>
+        </div>
+        <div class="data-entry" id="dataEntrySection" style="display: none;">
+            <label for="dataArray">Lütfen veriyi girin (0 veya 1 arasında boşluk bırakarak):</label>
+            <input type="text" id="dataArray">
+            <button onclick="processData()">Process Data</button>
+        </div>
+        <div class="results" id="resultsSection" style="display: none;">
+            <h2>Results</h2>
+            <pre id="results"></pre>
+        </div>
+        <div class="error-correction" id="errorCorrectionSection" style="display: none;">
+            <label for="errorIndex">Hangi satırdaki veriyi değiştirmek istiyorsunuz (sağdan sola sayınız (1'den başlayarak)):</label>
+            <input type="number" id="errorIndex" min="1">
+            <button onclick="correctError()">Correct Error</button>
+        </div>
+        <div class="results2" id="resultsSection2" style="display: none;">
+            <h2>SONUC</h2>
+            <pre id="results2"></pre>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
